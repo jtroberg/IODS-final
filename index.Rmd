@@ -1,0 +1,18 @@
+---
+title: "Final Assingment"
+author: "Johanna Troberg"
+date: "27 2 2017"
+output: 
+  html_document: 
+    code_folding: hide
+  
+---
+Link to my repository:
+
+[jtroberg Github repository](https://github.com/jtroberg/IODS-final)
+
+Test text and test code
+```{r, test}
+s<-1
+s
+```
