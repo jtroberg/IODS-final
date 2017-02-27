@@ -9,7 +9,7 @@ output:
 ---
 Link to Github repository 
 
-[jtroberg's Github repository](https://github.com/*your_github_username*/IODS-project)
+[jtroberg Github repository](https://github.com/*your_github_username*/IODS-final)
 
 This is some temporary text and code in the index.Rmd
 ```{r, test code}
