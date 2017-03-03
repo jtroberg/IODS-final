@@ -1,18 +1,85 @@
 ---
 title: "Final Assingment"
 author: "Johanna Troberg"
-date: "27 2 2017"
+date: "March 8, 2017"
 output: 
   html_document: 
+    theme: flatly
+    highlight: tango
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    smooth_scroll: true
     code_folding: hide
-  
+    fig_width: 8
+    fig_height: 6
+    fig_caption: true
+    
 ---
-Link to my repository:
+# Link to my repository:
 
 [jtroberg Github repository](https://github.com/jtroberg/IODS-final)
 
-Test text and test code
+#1.1In this final assignment I am comparing dog and human metabolic enzymes.
 ```{r, test}
 s<-1
 s
 ```
+
+# Some more text to see how things are working
+**l**
+
+*gkejr*
+
+## Quarterly Results {.tabset .tabset-fade .tabset-pills}
+
+### Our data
+
+(tab content)
+
+### Literature
+
+(tab content)
+
+g
+
+e
+
+r
+
+h
+
+j
+
+k
+
+d
+
+r
+
+h
+
+rthj
+
+k
+
+dfg
+
+g
+
+dsg
+
+
+g
+
+th
+
+rth
+
+sr
+
+h
+
+s
+
+# And then some more text
