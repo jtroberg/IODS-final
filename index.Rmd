@@ -20,7 +20,9 @@ output:
 
 [jtroberg Github repository](https://github.com/jtroberg/IODS-final)
 
-#1.1In this final assignment I am comparing dog and human metabolic enzymes.
+#1.1. Purpose of this analysis
+
+In this final assignment I am comparing the activities of dog and human conjugating enzymes, UDP-glucuronosyltransferases. The comparison of the individual UGT1A and 1a families are published in the paper [Troberg et al., 2015](https://jtroberg.github.io/IODS-final/#and_then_some_more_text "References")
 ```{r, test}
 s<-1
 s
@@ -82,4 +84,6 @@ h
 
 s
 
-# And then some more text
+# References
+
+1. Troberg, J., et al. (2015). "Dog UDP-Glucuronosyltransferase Enzymes of Subfamily 1A: Cloning, Expression, and Activity." Drug Metabolism and Disposition 43(1): 107-118.
