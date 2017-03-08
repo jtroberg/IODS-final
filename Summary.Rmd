@@ -1,0 +1,37 @@
+# 2. Summary of the data
+## 2.1. Enzymes
+To understand drug glucuronidation in the dog better, the activity of 10 dog UDP-glucuronosyltransferases of subfamily 1A (d1As) were previosly assayed toward 14 compounds, and compared with activity of the 9 human UGTs (h1As). The goal of that study was to find out whether individual dog and human UGTs have similar substrate specificities. Those reported screening results revealed some similarities but also many differences.
+
+In this IODS final assignment the enzymes are abbreviated with small "h" or "d", indicating human or dog enzyme.
+
+
+## 2.2. Substrates
+Substrates used in this analysis are small (mostly) lipophilic drugmolecules, that are conjugated by some of these enzymes. The 14 substrates are modified into 19 different glucuronides. When there are more than one glucuronide formated from the substrate it is abbreviated with -G1 and -G2 indicating glucuronide 1 and 2, or if the position of the conjugation is known, 3-G or 17-G, for 3-OH or 17-OH glucuronidation. The abbreviations used in this analysis for the substrates is:
+
+1. 4-methylumbelliferone (4MU)
+2. epiestradiol (AED-3G, AED-17G)
+3. estradiol (E2-3G, E2-17G)
+4. ethinylestradiol (EED-3G, EED-17G)
+5. testosterone (TS)
+6. epitestosterone (ETS)
+7. bilirubin (BIL)
+8. entacapone (ETC)
+9. indomethacin (IND)
+10. diclofenac (DF)
+11. dexmedetomidine (DMED-G1, DMED-G2)
+12. levomedetomidine (LMED-G1, LMED-G2)
+13. R-propranolol (RPRN)
+14. S-propranolol (SPRN)
+
+The physicochemical properties of these 14 substrates were taken from [NCBI website](https://pubchem.ncbi.nlm.nih.gov/compound)
+
+## 2.3. Data tables
+
+The summary of the combined experimental data from the previously published paper and the physicochemical properties of the substrates is presented below in the table of structure of the data set.
+
+```{r, summary_table}
+enz<-read.table("~/Desktop/IODS-project/IODS-Final/Data/enzymes.txt", sep="", header=T)
+str(enz)
+```
+
+From the table can be seen that there are not always the same number of levels between the enzymes, because not all the enzymes work with the all the substrates. The human 1A3 seems to have the broadest scope of catalyzing different glucuronides in this data set, and dog 1A6 seems to have catalyze only 2 glucuronidation reactions.

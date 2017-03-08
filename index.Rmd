@@ -16,23 +16,35 @@ output:
     fig_caption: true
     
 ---
-# Link to my repository:
+# Links to my repository and Data wrangling script
 
 [jtroberg Github repository](https://github.com/jtroberg/IODS-final)
 
-#1.1. Purpose of this analysis
+[Data wrangling](https://github.com/jtroberg/IODS-final/blob/master/data_wrangling.R)
 
-In this final assignment I am comparing the activities of dog and human conjugating enzymes, UDP-glucuronosyltransferases. The comparison of the individual UGT1A and 1a families are published in the paper [Troberg et al., 2015](https://jtroberg.github.io/IODS-final/#and_then_some_more_text "References")
-```{r, test}
-s<-1
-s
+#1. Purpose of this analysis
+
+In this final assignment I am comparing the activities of dog and human conjugating enzymes, UDP-glucuronosyltransferases. The comparison of the individual UGT1A and 1a families are published in the paper [Troberg et al., 2015](https://jtroberg.github.io/IODS-final/#references). 
+
+The main goal of this analysis is to see if there is any correlation or pattern visible between activities and physicochemical properties. 
+
+
+```{r child = "Summary.Rmd"}
 ```
 
-# Some more text to see how things are working
-**l**
+# 3. Analysis
+In the first part of the analysis, we will just take a look at this data and see if there is any similarities between the human and canine enzymes. 
 
-*gkejr*
+```{r child="Analysis1.Rmd"}
+```
 
+
+```{r child="Analysis2.Rmd"}
+```
+
+
+```{r child="Conclusions.Rmd"}
+```
 ## Quarterly Results {.tabset .tabset-fade .tabset-pills}
 
 ### Our data
@@ -43,46 +55,6 @@ s
 
 (tab content)
 
-g
-
-e
-
-r
-
-h
-
-j
-
-k
-
-d
-
-r
-
-h
-
-rthj
-
-k
-
-dfg
-
-g
-
-dsg
-
-
-g
-
-th
-
-rth
-
-sr
-
-h
-
-s
 
 # References
 
