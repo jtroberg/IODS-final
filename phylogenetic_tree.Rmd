@@ -1,0 +1,44 @@
+---
+title: "Phylogenetic tree"
+author: "Johanna Troberg"
+date: "8 3 2017"
+output: html_document
+---
+
+```{r phylogenetic_tree}
+knitr::opts_chunk$set(echo = TRUE)
+# loading ape for phylogenetic tree and dplyr
+library(ape)
+library()
+
+# Read a tree contained in a text file with nexus format
+dogs_seq<-read.table("~/Desktop/IODS-project/IODS-final/aminoacids_dogs.csv", sep=";", header=TRUE)
+
+human_seq<-read.table("~/Desktop/IODS-project/IODS-final/aminoacids_human.csv", sep=";", header=TRUE)
+
+# Summary of the dog aminosequence 
+summary(dogs_seq)
+summary(human_seq)
+
+str(dogs_seq)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
