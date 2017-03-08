@@ -1,0 +1,24 @@
+```{r}
+# Access to ggplot2, GGally,tidyr and enz.
+library(ggplot2)
+library(GGally)
+library(tidyr)
+
+enz<-read.table("~/Desktop/IODS-project/IODS-Final/Data/enzymes.txt", sep="", header=T)
+head(enz)
+#  Plot with ggplot (aes)
+p1 <- ggplot(enz, aes(x = c(2:18), y = (value)))
+
+#  point visualization
+p2 <- p1 + geom_bar()
+
+# adding a regression line
+p3 <- p2 + geom_smooth(method = "lm")
+
+# adding a title and drawing the plot
+p4 <- p3 + ggtitle("Student's attitude vs exam points")
+
+# printing the plot
+p4
+```
+
