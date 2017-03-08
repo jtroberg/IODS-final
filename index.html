@@ -288,7 +288,7 @@ div.tocify {
 </div>
 <div id="substrates" class="section level2">
 <h2>2.2. Substrates</h2>
-<p>Substrates used in this analysis are small (mostly) lipophilic drugmolecules, that are conjugated by some of these enzymes. The 14 substrates are modified into 19 different glucuronides. When there are more than one glucuronide formated from the substrate it is abbreviated with -G1 and -G2 indicating glucuronide 1 and 2, or if the position of the conjugation is known, 3-G or 17-G, for 3-OH or 17-OH glucuronidation. The abbreviations used in this analysis for the substrates is below:</p>
+<p>Substrates used in this analysis are small (mostly) lipophilic drugmolecules, that are conjugated by some of these enzymes. The 14 substrates are modified into 19 different glucuronides. When there are more than one glucuronide formated from the substrate it is abbreviated with -G1 and -G2 indicating glucuronide 1 and 2, or if the position of the conjugation is known, 3-G or 17-G, for 3-OH or 17-OH glucuronidation. The abbreviations used in this analysis for the substrates is:</p>
 <ol style="list-style-type: decimal">
 <li>4-methylumbelliferone (4MU)</li>
 <li>epiestradiol (AED-3G, AED-17G)</li>
@@ -346,6 +346,123 @@ div.tocify {
 <div id="analysis" class="section level1">
 <h1>3. Analysis</h1>
 <p>In the first part of the analysis, we will just take a look at this data and see if there is any similarities between the human and canine enzymes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Access to ggplot2, GGally,tidyr and enz.</span>
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(GGally)
+<span class="kw">library</span>(tidyr)
+
+enz&lt;-<span class="kw">read.table</span>(<span class="st">&quot;~/Desktop/IODS-project/IODS-Final/Data/enzymes.txt&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)
+enz</code></pre></div>
+<pre><code>##                d1A1        d1A2        d1A3        d1A4        d1A6
+## AED-3G     0,407193   5,0147535 4,032323333    0,228521           0
+## AED-17G           0    0,223488 0,362621333           0           0
+## E2-3G   0,708644667    6,794844 4,118155667 1,594932333           0
+## E2-17G            0 0,281482333 0,476867333           0           0
+## EED-3G  2,071278667    13,56882 8,853480333    0,797886           0
+## EED-17G           0           0           0           0           0
+## TS                0    0,185215 0,130479333   0,0117515           0
+## ETS               0           0           0           0           0
+## BIL     23,23764333    0,155143 0,245866667 0,741196667           0
+## ETC     5,512216333    16,93222 10,33747667 4,215296333           0
+## IND        2,038202 83,93189333    103,4047 25,62769333           0
+## DF      2,904354667 16,63721667 32,76622667 4,856246333 0,541707667
+## DMED-G1           0           0           0           0           0
+## DMED-G2           0           0           0           0           0
+## LMED-G1           0           0           0           0           0
+## LMED-G2           0           0           0           0           0
+## RPRN       1,118505    1,647518 1,470654333 0,022708933           0
+## SPRN    0,006041463 0,048523667 0,031495267  0,00258308           0
+##                d1A7        d1A8        d1A9       d1A10       d1A11
+## AED-3G  12,71883333 1,008033667    1,247358 2,149479333 14,00081667
+## AED-17G           0 0,030624833           0 0,047036367           0
+## E2-3G   8,159740333 4,652693333    0,996215 18,58655333 27,69721333
+## E2-17G            0           0           0           0           0
+## EED-3G  5,575690667    3,123327 0,775029667 37,18281667    50,86146
+## EED-17G           0           0           0           0           0
+## TS                0           0           0           0           0
+## ETS               0           0           0           0           0
+## BIL               0           0           0 0,610745667 0,568045333
+## ETC     5,991594333 2,435245333    19,85879 39,01961333    354,4213
+## IND     0,487419333           0    0,231315 4,761675333 3,438469667
+## DF         2,713802 0,497947667 0,184706333 2,136964333 4,404933667
+## DMED-G1           0           0           0           0           0
+## DMED-G2           0           0           0           0           0
+## LMED-G1           0           0           0           0           0
+## LMED-G2           0           0           0           0           0
+## RPRN       8,886649 0,036183633   0,0156492 0,063737033 0,161386667
+## SPRN        0,18439           0 0,028569433   0,0265254 0,319812667
+##                h1A1        h1A3        h1A4     h1A5        h1A6
+## AED-3G     0,888067 1,107408667           0        0           0
+## AED-17G           0 0,496872333 1,238905333        0           0
+## E2-3G   2,898200667 0,796636667           0        0           0
+## E2-17G            0 0,605074667 0,773748667        0           0
+## EED-3G     14,60496    0,663575           0        0           0
+## EED-17G           0 0,034138667    0,797041        0           0
+## TS                0 0,175134333    0,396643        0           0
+## ETS               0 0,008019923    0,299422        0           0
+## BIL        134,3278    0,278204           0        0           0
+## ETC        18,16345 11,97467667 5,754194667 1,689218    11,29904
+## IND     2,866604667 8,713175667           0        0           0
+## DF      1,023027333    7,312992           0        0 1,622944667
+## DMED-G1           0    0,489024 60,68572667        0           0
+## DMED-G2           0 1,102050667 8,939917333        0           0
+## LMED-G1           0    0,422317 6,272245667        0           0
+## LMED-G2           0 0,258438667 5,357342333        0           0
+## RPRN              0           0           0        0           0
+## SPRN              0           0           0        0           0
+##                h1A7        h1A8        h1A9       h1A10      MW XLogP3
+## AED-3G  0,077042933 0,347299333    0,365774 21,09311333 272,388      4
+## AED-17G           0           0           0           0 272,388      4
+## E2-3G   0,065358033 0,718529333           0 634,8384333 272,388      4
+## E2-17G            0           0           0   10,824744 272,388      4
+## EED-3G            0 0,857772667    0,280494 15,51706667  296,41    3,7
+## EED-17G           0           0           0           0  296,41    3,7
+## TS                0   0,0980481 0,084023733 1,880171333 288,431    3,3
+## ETS               0           0           0           0 288,431    3,3
+## BIL               0           0           0           0 584,673    2,9
+## ETC        309,6757    37,57894    2707,854 96,25802667  305,29    2,1
+## IND        3,257953     3,29643     37,4578 160,7049667  357,79    4,3
+## DF      0,635031333 0,764029333 7,395365667 146,3054333 296,147    4,4
+## DMED-G1           0           0           0           0 200,285    3,1
+## DMED-G2           0           0           0           0 200,285    3,1
+## LMED-G1           0           0           0           0 200,285    3,1
+## LMED-G2           0           0           0           0 200,285    3,1
+## RPRN    0,052703267           0    1,696105 20,66890333 259,349      3
+## SPRN       0,136344           0 12,58628333 3,425409667 259,349      3
+##         HBDonor HBAccep RotB TopPSA HAC Complex
+## AED-3G        2       2    0   40,5  20     382
+## AED-17G       2       2    0   40,5  20     382
+## E2-3G         2       2    0   40,5  20     382
+## E2-17G        2       2    0   40,5  20     382
+## EED-3G        2       2    1   40,5  22     505
+## EED-17G       2       2    1   40,5  22     505
+## TS            1       2    0   37,3  21     508
+## ETS           1       2    0   37,3  21     508
+## BIL           6       6   12    164  43    1340
+## ETC           2       6    4    130  22     500
+## IND           1       4    4   68,5  25     506
+## DF            2       3    4   49,3  19     304
+## DMED-G1       1       1    2   28,7  15     205
+## DMED-G2       1       1    2   28,7  15     205
+## LMED-G1       1       1    2   28,7  15     205
+## LMED-G2       1       1    2   28,7  15     205
+## RPRN          2       3    6   41,5  19     257
+## SPRN          2       3    6   41,5  19     257</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#  Plot with ggplot (aes)</span>
+<span class="co">#p1 &lt;- ggplot(enz, aes(x = rownames(), y = h1A1)</span>
+
+<span class="co">#  point visualization</span>
+<span class="co">#p2 &lt;- p1 + geom_bar()</span>
+
+<span class="co"># adding a regression line</span>
+<span class="co">#p3 &lt;- p2 + geom_smooth(method = &quot;lm&quot;)</span>
+
+<span class="co"># adding a title and drawing the plot</span>
+<span class="co">#p4 &lt;- p3 + ggtitle(&quot;)</span>
+
+<span class="co"># printing the plot</span>
+<span class="co">#p4</span></code></pre></div>
+<p>MCA</p>
 <div id="quarterly-results" class="section level2 tabset tabset-fade tabset-pills">
 <h2>Quarterly Results</h2>
 <div id="our-data" class="section level3">
